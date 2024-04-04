@@ -1,5 +1,5 @@
 public class co1 {
-	//코딩 단축키
+	//디스코드 설정 알림 방송방법, 코딩 단축키, 책뒤에 사전
 
 	public static void main(String[] args) {
 		//if switch
