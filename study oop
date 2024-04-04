@@ -1,0 +1,39 @@
+package co1;
+
+class Poo {
+	public static String classVar = "I class var";	// 클래스변수 = static 필드
+	public String instanceVar = "I instance var";		// 인스턴스변수
+	
+	public static void classMethod() {
+		System.out.println(classVar);	//	OK
+		//System.out.println(instanceVar); Error
+	}
+	public void instanceMethod() {
+		System.out.println(classVar);	// OK
+		System.out.println(instanceVar);	// OK
+	}
+}
+
+public class Study01 {
+		
+		public static void main(String[] args) {
+			//System.out.println(Poo.classVar); OK
+			//System.out.println(Poo.instanceVar); Error
+		
+			Poo f1 = new Poo();
+			Poo f2 = new Poo();
+			
+			System.out.println(f1.classVar);
+			System.out.println(f1.instanceVar);
+			
+			f1.classVar = "changed by f1";
+			System.out.println(Poo.classVar);
+			System.out.println(f1.classVar);
+			
+			f2.instanceVar = "changed by f2";
+			System.out.println(f1.instanceVar);	
+			System.out.println(f2.instanceVar);
+		}
+		
+		
+}
