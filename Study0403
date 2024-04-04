@@ -1,5 +1,5 @@
 public class co1 {
-	//디스코드 설정 알림 방송방법, 큰 틀의 패키지 클래스, main , 코딩 단축키, 책뒤에 사전
+	//디스코드 설정 알림 방송방법, 책 뒤에 사전, 큰 틀의 패키지 클래스, main , 코딩 단축키
 
 	public static void main(String[] args) {
 		//if switch
