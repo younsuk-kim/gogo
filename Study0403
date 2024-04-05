@@ -1,8 +1,4 @@
 public class co1 {
-	//디스코드 설정 알림 방송방법, 책 뒤에 사전, 큰 틀의 패키지 클래스, main , 코딩 단축키
-	단축키 멤버 정적필드 패키지 카톡 병결 
-	스터디 목적 나한테도 도움 스태틱필드는 실행되면 가장먼저 메모리 할당받음
-	매개변수가 햄버거 무엇?
 
 	public static void main(String[] args) {
 		//if switch
