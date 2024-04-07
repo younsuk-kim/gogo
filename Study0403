@@ -1,5 +1,16 @@
 public class co1 {
-
+/*
+Scanner in = new Scanner(System.in);
+		int A = in.nextInt();
+		int B = in.nextInt();
+		int C = in.nextInt();
+		
+		if((A+=(B+C)/60)<24 && B+C<60) {
+			System.out.println(A+" "+(B+C));
+		} else if ((A+=(B+C)/60)<24 && B+C>=60){
+			System.out.println(A);
+		}
+*/
 	public static void main(String[] args) {
 		//if switch
 		//for while do-while
