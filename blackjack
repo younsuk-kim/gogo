@@ -1,0 +1,75 @@
+package program;
+
+// 딜러카드 2장 플레이어카드 2장을 받는다.
+// 딜러카드의 첫번째 카드만 오픈한다.
+// 플레이어카드의 합이 21을 넘지 않으면 카드를 더 받을지 말지 정한다.
+// 플레이어의 카드의 합이 21이 넘어가면 패배
+// 카드를 그만 받으면 딜러와 플레이어 카드를 오픈한다.
+// 딜러 카드의 합이 17이상이 안되면 카드를 한장씩 받는다.
+// 딜러의 카드의 합이 21이 넘어가면 패배
+// 딜러의 카드의 합이 17이상이 되면 둘다 카드받기를 종료한다.
+// 카드의 합이 21에 가까운쪽이 이긴다.(같으면 비김)
+// A는 11로 처리
+// 2, 3, 4, 5, 6, 7, 8, 9, 10, (J, Q, K)->10, A = 11
+// 출력할땐 영어카드로 출력되지만 계산할땐 각자 정해진 숫자로 계산
+// A카드 + K카드 = 카드의 합은 21
+import java.util.*;
+
+class Deck {
+	public static void deal() {
+		Random ran = new Random();
+		List<Integer> dealer = new ArrayList<Integer>();
+		dealer.add(ran.nextInt(13)+1);
+		dealer.add(ran.nextInt(13)+1);
+		System.out.println("딜러의 첫번째 카드는 "+dealer.get(0)+"카드 입니다.");
+		
+	}
+	public static void play() {
+		Random ran = new Random();
+		List<Integer> player = new ArrayList<Integer>();
+		player.add(ran.nextInt(13)+1);
+		player.add(ran.nextInt(13)+1);
+		System.out.println("당신의 카드는 "+(player.get(0)>12?"K":(player.get(0)>11?"Q":"J"))+"카드와 "+player.get(1)+"카드입니다. ");
+		
+	}
+}
+public class BlackJack {
+
+	public static void main(String[] args) {
+		System.out.println("당신은 오늘부터 프로겜블러가 되기 위해 연습을 해야 합니다.");
+		System.out.println("블랙잭을 마스터 하십시오.");
+		System.out.println("시작하시겠습니다? 1:Yes, 2:no");
+		Scanner in = new Scanner(System.in);
+		
+		int n = in.nextInt();
+		if(n==2) System.exit(0);
+		
+		Deck.deal();
+		Deck.play();
+
+		System.out.println();
+		System.out.println("추가로 카드를 더 받으시겠습니까? \n1: Hit, 2: Stand ");
+		
+//		if(player.get(0)+player.get(1)>21) {
+//			System.out.println();
+//		} else if(player.get(0)+player.get(1)==21) {
+//			//프로그램 종료 승리
+//		} else {
+//			//카드 한번 더 받기
+//		}
+//		
+//		if(dealer1>10) dealer1=10;
+//		if(dealer2>10) dealer2=10;
+//		int player1 = ran.nextInt(14)+1;
+//		int player2 = ran.nextInt(14)+1;
+//		System.out.println("당신의 카드는 "+(player1>11?"A":"B")+"카드와 "+player2+"카드입니다. ");
+//		
+//		if(player1>10) player1=10;
+//		if(player2>10) player2=10;
+//		System.out.println();
+//		System.out.println("추가로 카드를 더 받으시겠습니까? \n1: call, 2: stop ");
+		
+
+	}
+
+}
