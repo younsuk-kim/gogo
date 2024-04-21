@@ -1,19 +1,19 @@
 package program;
 
-// 딜러카드 2장 플레이어카드 2장을 받는다.
-// 딜러카드의 첫번째 카드만 오픈한다.
-// 플레이어카드의 합이 21을 넘지 않으면 카드를 더 받을지 말지 정한다.
-// 플레이어의 카드의 합이 21이 넘어가면 패배
-// 카드를 그만 받으면 딜러와 플레이어 카드를 오픈한다.
-// 딜러 카드의 합이 17이상이 안되면 카드를 한장씩 받는다.
-// 딜러의 카드의 합이 21이 넘어가면 패배
-// 딜러의 카드의 합이 17이상이 되면 둘다 카드받기를 종료한다.
-// 카드의 합이 21에 가까운쪽이 이긴다.(같으면 비김)
-// A는 11로 처리
-// 2, 3, 4, 5, 6, 7, 8, 9, 10, (J, Q, K)->10, A = 11
-// 출력할땐 영어카드로 출력되지만 계산할땐 각자 정해진 숫자로 계산
-// A카드 + K카드 = 카드의 합은 21
 import java.util.*;
+//딜러카드 2장 플레이어카드 2장을 받는다.
+//딜러카드의 첫번째 카드만 오픈한다.
+//플레이어카드의 합이 21을 넘지 않으면 카드를 더 받을지 말지 정한다.
+//플레이어의 카드의 합이 21이 넘어가면 패배
+//카드를 그만 받으면 딜러와 플레이어 카드를 오픈한다.
+//딜러 카드의 합이 17이상이 안되면 카드를 한장씩 받는다.
+//딜러의 카드의 합이 21이 넘어가면 패배
+//딜러의 카드의 합이 17이상이 되면 둘다 카드받기를 종료한다.
+//카드의 합이 21에 가까운쪽이 이긴다.(같으면 비김)
+//A는 11로 처리
+//2, 3, 4, 5, 6, 7, 8, 9, 10, (J, Q, K)->10, A = 11
+//출력할땐 영어카드로 출력되지만 계산할땐 각자 정해진 숫자로 계산
+//A카드 + K카드 = 카드의 합은 21
 
 class Deck{ //딜러와 플레이어의 카드를 받는 클래스
 	List<Integer> playerD = new ArrayList<>();	// 플레이어 카드 덱
@@ -42,7 +42,7 @@ class Deck{ //딜러와 플레이어의 카드를 받는 클래스
 			System.exit(0);
 		} else if(dealerSum==21) {
 			System.out.println("딜러가 승리하였습니다.");
-			System.exit(0);
+			//System.exit(0);
 		}
 		
 	}
@@ -96,7 +96,7 @@ class Deck{ //딜러와 플레이어의 카드를 받는 클래스
 			System.exit(0);
 		} else if(playerSum==21) {
 			System.out.println("플레이어가 승리하였습니다.");
-			System.exit(0);
+			//System.exit(0);
 		}
 	}
 	
@@ -121,7 +121,7 @@ class Deck{ //딜러와 플레이어의 카드를 받는 클래스
 				System.exit(0);
 			} else if(dealerSum==21) {
 				System.out.println("딜러가 승리하였습니다.");
-				System.exit(0);
+				break;
 			}
 		
 		}
@@ -149,6 +149,9 @@ public class BlackJack {
 		deck.dealer();	// 플레이어 카드 생성
 		deck.player();	// 딜러 카드 생성
 		
+		int dealer=deck.dealerSum;
+		int player=deck.playerSum;	
+		
 		while(true) { // 게임이 종료되기 전까지 계속 카드를 추가로 받음
 			System.out.println();
 			System.out.println("추가로 카드를 더 받으시겠습니까? \n1: Hit, 2: Stand ");
@@ -157,12 +160,11 @@ public class BlackJack {
 					deck.add();
 					deck.playerD.get(0);
 				} else if (addCard==2) {
-					int player=0;
-					int dealer=0;
-					dealer=deck.dealerSum;
-					player=deck.playerSum;
-					deck.dealerAdd();
 					
+					deck.dealerAdd();// 딜러 카드 받기 or stop
+					
+					player=deck.playerSum;
+					dealer=deck.dealerSum;
 					if(player-dealer>0) {
 						System.out.println();
 						deck.dealerD.forEach((a) -> System.out.println("딜러의 카드는 "+ (a<11?a:(a<12?"J":(a<13?"Q":(a<14?"K":"A"))))+"카드 입니다."));
