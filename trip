@@ -7,111 +7,116 @@ import java.util.*;
 //12시~13시는 점심시간이다.
 //
 class TripList{
-	List<String> seoul = new ArrayList<>();
-	List<String> incheon = new ArrayList<>();
-	List<String> busan = new ArrayList<>();
-	
-	List<Integer> key = new ArrayList<>();
-	
-	TreeSet<Integer> treeSetRan = new TreeSet<>();
-	Random ran = new Random();
-	int sum=0;
-	public void randomList(){
-	}
-	public TripList() {
-		seoul.add("남산타워 산책");
-		seoul.add("종로 광장시장");
-		seoul.add("압구정 가로수길1");
-		seoul.add("압구정 가로수길2");
-		seoul.add("압구정 가로수길3");
-		seoul.add("압구정 가로수길4");
-		seoul.add("압구정 가로수길5");
-		seoul.add("압구정 가로수길6");
-		seoul.add("압구정 가로수길7");
-		key.add(2);
-		key.add(1);
-		key.add(2);
-		key.add(1);
-		key.add(1);
-		key.add(2);
-		key.add(2);
-		key.add(2);
-		key.add(2);
+		List<String> seoul = new ArrayList<>();
+		List<String> incheon = new ArrayList<>();
+		List<String> busan = new ArrayList<>();
 		
-		incheon.add("차이나타운 탐방");
-		incheon.add("소래포구 횟집");
-		incheon.add("월미도 바다1");
-		incheon.add("월미도 바다2");
-		incheon.add("월미도 바다3");
-		incheon.add("월미도 바다4");
-		incheon.add("월미도 바다5");
-		incheon.add("월미도 바다6");
-		incheon.add("월미도 바다7");
+		List<Integer> key = new ArrayList<>();
 		
-		busan.add("해운대 해수욕장");
-		busan.add("광안리 산책");
-		busan.add("다대포 탐방1");	
-		busan.add("다대포 탐방2");	
-		busan.add("다대포 탐방3");	
-		busan.add("다대포 탐방4");	
-		busan.add("다대포 탐방5");	
-		busan.add("다대포 탐방6");	
-		busan.add("다대포 탐방7");	
-	}
-	public void seoulList(int time) {
-		
-//		for (int i=0; treeSetRan.size()<seoul.size(); i++) {
-//			treeSetRan.add(ran.nextInt(seoul.size()));
-//		}
-//		System.out.println(treeSetRan);
-
-		for(int i=0; i<seoul.size(); i++) {
-			int j=ran.nextInt(seoul.size());
-			System.out.println(time+":00 "+seoul.get(j));
-			time+=key.get(j);
-			if(time==12){
-				System.out.println("12:00 점심시간");
-				time++;				
-			} 
-			if(time>=19) break;
+		TreeSet<Integer> treeSetRan = new TreeSet<>();
+		Random ran = new Random();
+		int sum=0;
+		List<String> area = new ArrayList<>();
+		public TripList() {
+			seoul.add("남산타워 산책");
+			seoul.add("종로 광장시장");
+			seoul.add("신사동 가로수길1");
+			seoul.add("신사동 가로수길2");
+			seoul.add("신사동 가로수길3");
+			seoul.add("신사동 가로수길4");
+			seoul.add("신사동 가로수길5");
+			seoul.add("신사동 가로수길6");
+			seoul.add("신사동 가로수길7");
+			key.add(2);
+			key.add(1);
+			key.add(2);
+			key.add(1);
+			key.add(1);
+			key.add(2);
+			key.add(2);
+			key.add(2);
+			key.add(2);
+			
+			incheon.add("차이나타운 탐방");
+			incheon.add("소래포구 횟집");
+			incheon.add("월미도 바다1");
+			incheon.add("월미도 바다2");
+			incheon.add("월미도 바다3");
+			incheon.add("월미도 바다4");
+			incheon.add("월미도 바다5");
+			incheon.add("월미도 바다6");
+			incheon.add("월미도 바다7");
+			
+			busan.add("해운대 해수욕장");
+			busan.add("광안리 산책");
+			busan.add("다대포 탐방1");	
+			busan.add("다대포 탐방2");	
+			busan.add("다대포 탐방3");	
+			busan.add("다대포 탐방4");	
+			busan.add("다대포 탐방5");	
+			busan.add("다대포 탐방6");	
+			busan.add("다대포 탐방7");	
 		}
 
-	}
-	public void incheonList(int time) {
+		public void seoulList(int time) {
+			boolean lunchtime=false;
+			
+//			for (int i=0; treeSetRan.size()<seoul.size(); i++) {
+//				treeSetRan.add(ran.nextInt(seoul.size()));
+//			}
+//			System.out.println(treeSetRan);
 
-		for(int i=0; i<incheon.size(); i++) {
-			int j=ran.nextInt(incheon.size());
-			System.out.println(time+":00 "+incheon.get(j));
-			time+=key.get(j);
-			if(time==12){
-				System.out.println("12:00 점심시간");
-				time++;				
-			} 
-			if(time>=19) break;
+			for(int i=0; i<seoul.size(); i++) {
+				int j=ran.nextInt(seoul.size());
+				System.out.println(time+":00 "+seoul.get(j));
+				time+=key.get(j);
+				if(!lunchtime && time>=12){
+					System.out.println("12:00 점심시간");
+					time++;
+					lunchtime=true;
+				} 
+				if(time>=19) break;
+			}
+
 		}
+		public void incheonList(int time) {
+			boolean lunchtime = false;
 
-	}
-	public void busanList(int time) {
+			for(int i=0; i<incheon.size(); i++) {
+				int j=ran.nextInt(incheon.size());
+				System.out.println(time+":00 "+incheon.get(j));
+				time+=key.get(j);
+				if(!lunchtime && time>=12){
+					System.out.println("12:00 점심시간");
+					time++;
+					lunchtime=true;
+				} 
+				if(time>=19) break;
+			}
 
-		for(int i=0; i<busan.size(); i++) {
-			int j=ran.nextInt(busan.size());
-			System.out.println(time+":00 "+busan.get(j));
-			time+=key.get(j);
-			if(time==12){
-				System.out.println("12:00 점심시간");
-				time++;				
-			} 
-			if(time>=19) break;
 		}
-
-	}
+		public void areaList(int time, String area) {
+			
+			boolean lunchtime = false;
+//			for(int i=0; i<area.size(); i++) {
+//				int j=ran.nextInt(area.size());
+//				System.out.println(time+":00 "+area.get(j));
+//				time+=key.get(j);
+//				if(!lunchtime && time>=12){
+//					System.out.println("12:00 점심시간");
+//					time++;
+//					lunchtime=true;
+//				} 
+//				if(time>=19) break;
+//			}
+		}
 }
-
-public class TouristArea {
+public class Trip {
 
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
 		int choice;
+		int time;
 		while (true) {
 		System.out.println("여행 가고 싶은 지역을 선택해 주세요.");
 		System.out.println("1:서울, 2:인천, 3:부산 ");
@@ -122,21 +127,28 @@ public class TouristArea {
 				System.out.println("잘못입력하셨습니다. 다시 선택해 주세요.\n");
 			}
 		}
-		System.out.println("몇시부터 여행을 시작할지 적어주세요 ex) 오전 7시 -> 7, 오후 2시 -> 14");		
-		int time = in.nextInt();
+		System.out.println("7시부터 11시 사이의 시작시간을 입력해주세요.");
+		System.out.println("몇시부터 여행을 시작할지 적어주세요 ex) 오전 7시 -> 7");		
+		
+			while(true) {
+				time = in.nextInt();
+				if(time<7 || time>11) {
+					System.out.println("시작시간을 다시 골라주세요.");
+					System.out.println("ex) 7시~11시 사이");
+				} else {
+					break;
+				}
+			}
 		TripList triplist = new TripList();
 		
 		switch(choice) {
 		case 1: triplist.seoulList(time); break;
 		case 2: triplist.incheonList(time); break;
-		case 3: triplist.busanList(time);
+		case 3: triplist.areaList(time, "busan");
 			
 		}
-		
-		
-		
-		
 
 	}
 
 }
+
